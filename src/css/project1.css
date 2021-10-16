@@ -1,0 +1,28 @@
+
+.teclado {
+
+}
+
+.linea1, .linea2, .linea3{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    background-color: orange;
+}
+
+.linea1 >div{
+    /*flex-grow: 2; */
+    flex-basis: 20px;
+    background-color: green;
+}
+
+.linea2 >div{
+    flex-basis: 20px;
+    background-color: red;
+}
+
+.linea3 >div{
+
+    flex-basis: 20px;
+    background-color: blueviolet;
+}
