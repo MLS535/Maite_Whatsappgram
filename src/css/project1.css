@@ -12,23 +12,33 @@ body{
     "teclado";
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
+
 }
+
 
 
 .messages {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    justify-content: end;
-    justify-items: end;
-    justify-self: end;
+    display: flex;
+    justify-content: flex-start;
+    justify-items: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
     grid-area: messages;
     font-family: "Lucida Console", "Courier New", monospace;
-    text-align: right;
-
 
 }
+.messages>div{
+    background-color: #23a6d5;
+   margin: 10px;
+    padding: 5px;
+    width: fit-content;
+    height: fit-content;
+    overflow: auto;
+}
+
 .formulario{
-    grid-area: formulario;
+   grid-area: formulario;
+
 
 }
 .inputtext{
@@ -46,13 +56,6 @@ body{
     border:2px solid grey;
     font-size: 4vh;
     font-family: Arial, serif;
-    /*font-size: 3vh;
-    background:deepskyblue;
-    border-radius:3px;
-    align-items:center;
-    align-content:center;
-    justify-content: center;
-    border:2px solid grey; */
 }
 
 .linea1{
