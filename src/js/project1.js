@@ -1,6 +1,28 @@
+//todo al principio aparece una fecha
+function date(){
+    const month = new Array();
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
+
+    const d = new Date();
+    let name = month[d.getMonth()];
+    document.getElementById("demo").innerHTML = name;
+}
+date();
+
 //TODO !!!! PISTA PROFE: EL IDENTIFICADOR DE LA LETRA ES LO MISMO QUE IMPRIMIR
-function imprimirtecla(valor){ document.getelementbyid("message").innerHTML += valor}
-document.getElementById("a").onclick =function(){ imprimirtecla(this.id)}
+//function imprimirtecla(valor){ document.getelementbyid("message").innerHTML += valor}
+//document.getElementById("a").onclick =function(){ imprimirtecla(this.id)}
 //CREAR UN ARRAY O UN BUCLE PARA CADA POSICIÓN O UNA LETRA.
 //TODO La messaging area conté els missatges escrits.
 
