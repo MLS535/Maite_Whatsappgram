@@ -6,9 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maite Whatsapgram</title>
     <link rel="stylesheet" type="text/css" href="css/project1.css" />
+    <script src="https://kit.fontawesome.com/d6be90a814.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<p>Aquí se añadirá texto</p>
+<section class="contenedor">
+    <div class="messages">Aquí se añaden los inputs</div>
+<form class="formulario">
+    <button><span class="fas fa-icons fa-2x"></span></button>
+    <input class="inputtext" type="text" id="texto" size="34"/>
+<button type="submit"><span class="far fa-paper-plane fa-2x" ></span></button>
+</form>
+
+
 <div class="teclado">
 <div class="linea1">
     <div>q</div>
@@ -22,7 +31,7 @@
     <div>o</div>
     <div>p</div>
 </div>
-<div class="linea2">
+<div class="linea1">
     <div>a</div>
     <div>s</div>
     <div>d</div>
@@ -32,10 +41,11 @@
     <div>j</div>
     <div>k</div>
     <div>l</div>
-    <div>añadir</div>
+
 </div>
 
-<div class="linea3">
+<div class="linea1">
+    <div id="flecharriba">&uArr;</div>
     <div>z</div>
     <div>x</div>
     <div>c</div>
@@ -43,7 +53,18 @@
     <div>b</div>
     <div>n</div>
     <div>m</div>
+    <div id="flechaizquierda">&lArr;</div>
 </div>
+    <div class="linea1">
+        <div id="borrarTodoTextArea">ℂ</div>
+        <div id="borrarBorrarPalabra">CE</div>
+        <div>,</div>
+        <div id="spacebar">&ensp;</div>
+        <div>.</div>
+        <div id="flechaHaciaLaderecha">&rArr;</div>
+        <div id="saltoDeLinea">&crarr;</div>
+    </div>
 </div>
+</section>
 </body>
 </html>
