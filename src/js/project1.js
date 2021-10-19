@@ -1,33 +1,33 @@
-//todo al principio aparece una fecha
-function date(){
-    const month = new Array();
-    month[0] = "January";
-    month[1] = "February";
-    month[2] = "March";
-    month[3] = "April";
-    month[4] = "May";
-    month[5] = "June";
-    month[6] = "July";
-    month[7] = "August";
-    month[8] = "September";
-    month[9] = "October";
-    month[10] = "November";
-    month[11] = "December";
 
-    const d = new Date();
-    let name = month[d.getMonth()];
-    document.getElementById("demo").innerHTML = name;
+//TODO: La data d’enviament s’escriu sobre els missatges en el format indicat (en l’idioma que vulgueu): Exemple: 25 Maig
+window.onload = (event) => {
+    const month = ["Enero", "Febrero", "Marzo", "Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+    let fecha = new Date();
+    let name = fecha.getDate()+" de "+month[fecha.getMonth()];
+    document.getElementById("fecha").innerHTML = name;
+};
+//TODO La messaging area conté els missatges escrits.
+const keyboard ={
+    inicio(){
+        const divs= document.querySelectorAll(".linea1>div");
+        divs.forEach(div =>{div.addEventListener('click',function (){
+            document.getElementById('texto').innerHTML+=div.textContent;
+        }
+        )
+        }
+        )
+
+    }
 }
-date();
-
+window.addEventListener('DOMContentLoaded', function (){keyboard.inicio()})
 //TODO !!!! PISTA PROFE: EL IDENTIFICADOR DE LA LETRA ES LO MISMO QUE IMPRIMIR
 //function imprimirtecla(valor){ document.getelementbyid("message").innerHTML += valor}
 //document.getElementById("a").onclick =function(){ imprimirtecla(this.id)}
 //CREAR UN ARRAY O UN BUCLE PARA CADA POSICIÓN O UNA LETRA.
-//TODO La messaging area conté els missatges escrits.
 
 
-//TODO: La data d’enviament s’escriu sobre els missatges en el format indicat (en l’idioma que vulgueu): Exemple: 25 Maig
+
+
 
 
 /*TODO: Els missatges contenen l’hora d’enviament amb format establert  hora:minuts.

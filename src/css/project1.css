@@ -1,22 +1,23 @@
 body{
     margin: 0;
-}
-
-.contenedor {
-    display: grid;
-    grid-template-columns: 2fr;
-    grid-template-rows: 11.7fr 0.5fr 1fr;
-    grid-template-areas:
-    "messages"
-    "formulario"
-    "teclado";
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
+}
+/*todo FIX ME: El scroll baja hasta abajo y deberia ser solo hasta el teclado pero ya se ven los mensajes.
+
+ */
+.contenedor {
+    display: grid;
+   /* grid-template-columns: 2fr;
+    grid-template-areas:
+    "formulario"
+    "teclado";
+    */
+    grid-template-rows: 7.5fr 2.5fr;
+
 
 
 }
-
-
 
 .messages {
     display: flex;
@@ -24,9 +25,12 @@ body{
     justify-items: flex-end;
     align-items: flex-end;
     flex-direction: column;
-    grid-area: messages;
-    font-family: "Lucida Console", "Courier New", monospace;
+    /*grid-area: messages; */
 
+    font-family: "Lucida Console", "Courier New", monospace;
+/*
+Limitar el grid
+ */
 }
 
 
@@ -36,22 +40,45 @@ body{
     padding: 5px;
     width: fit-content;
     height: fit-content;
-    overflow: auto;
+}
+/*
+TODO CENTRAR LA FECHA DE ARRIBA
+ */
+#fecha{
+    background-color: pink;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
 }
 
 .formulario{
    grid-area: formulario;
-
+    background-color: lightpink;
+    position: fixed;
+    bottom: 215px;
+    align-items: baseline;
 
 }
+.botones{
+    border-radius: 50%;
+    padding: 5px;
+}
+.botones>img{
+    width: 20px;
+    height: 20px;
+}
 .inputtext{
-    height: 2vh;
+    border: 2px solid black;
+    /*border-radius: 25px;*/
+    width: 76.6vw;
+    height: 4vh;
+    font-style: italic;
 }
 
 .teclado {
     grid-area: teclado;
     background-color: lightgray;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 98.9vw;
     height: 33vh;
