@@ -4,7 +4,7 @@ body{
     background-size: 400% 400%;
 }
 /*todo FIX ME: El scroll baja hasta abajo y deberia ser solo hasta el teclado pero ya se ven los mensajes.
-
+todo FIX ME: HAY QUE AÑADIR AL TECLADO UN TAMAÑO MINIMO Y MÁXIMO
  */
 .contenedor {
     display: grid;

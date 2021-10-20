@@ -1,12 +1,12 @@
 
-//TODO: La data d’enviament s’escriu sobre els missatges en el format indicat (en l’idioma que vulgueu): Exemple: 25 Maig
+//TODO: La data d’enviament s’escriu sobre els missatges en el format indicat (en l’idioma que vulgueu): Exemple: 25 Maig DONE
 window.onload = (event) => {
     const month = ["Enero", "Febrero", "Marzo", "Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
     let fecha = new Date();
     let name = fecha.getDate()+" de "+month[fecha.getMonth()];
     document.getElementById("fecha").innerHTML = name;
 };
-//TODO La messaging area conté els missatges escrits.
+//TODO La messaging area conté els missatges escrits. DONE
 const keyboard ={
     inicio(){
         const divs= document.querySelectorAll(".linea1>div");
@@ -20,6 +20,24 @@ const keyboard ={
     }
 }
 window.addEventListener('DOMContentLoaded', function (){keyboard.inicio()})
+
+document.getElementById("boton").addEventListener("click", function() {
+    envioBoton();
+});
+
+function envioBoton(){
+    var textarea= document.getElementById('texto').value;
+    var divino = document.createElement("div");
+    divino.appendChild(document.createTextNode(textarea));
+    document.getElementById("nuevosmensajes").appendChild(divino);
+//TODO EL MENSAJE SE DEBE BORRAR AL SER ENVIADO
+    //Para inserta la hora al mensaje
+    var hora =new Date;
+
+
+}
+
+
 //TODO !!!! PISTA PROFE: EL IDENTIFICADOR DE LA LETRA ES LO MISMO QUE IMPRIMIR
 //function imprimirtecla(valor){ document.getelementbyid("message").innerHTML += valor}
 //document.getElementById("a").onclick =function(){ imprimirtecla(this.id)}

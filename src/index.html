@@ -7,17 +7,16 @@
     <title>Maite Whatsapgram</title>
     <link rel="stylesheet" type="text/css" href="css/project1.css" />
     <script src="https://kit.fontawesome.com/d6be90a814.js" crossorigin="anonymous"></script>
-    <script src="js/project1.js"></script>
+
 </head>
 <body>
 <section class="contenedor">
 
     <div class="messages">
         <div id="fecha"></div>
-        <div>consectetur adipiscing elit.</div>
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-        <div>holas</div>
+        <div id="nuevosmensajes"></div>
         <!-- TODO Revisar el scroll down que no se mueva ni el input ni el teclado
+        //todo MediaQuery
         <div>holas</div><div>holas</div><div>holas</div><div>holas</div><div>holas</div>
          <div>holas</div><div>holas</div>
          <div>holas</div>
@@ -30,7 +29,7 @@
 <form class="formulario">
     <button class="botones"><img src="img/gif_smile.png" alt="boton de envio" ></button>
     <textarea class="inputtext" id="texto" placeholder="Escriu un missatge"></textarea>
-<button type="submit" class="botones"><img src="img/chat-send-icon-1.jpg" alt="boton de envio" > </button>
+<button type="button" class="botones" id="boton"><img src="img/chat-send-icon-1.jpg" alt="boton de envio" > </button>
 </form>
 
 
@@ -82,6 +81,6 @@
     </div>
 </div>
 </section>
-
+<script src="js/project1.js"></script>
 </body>
 </html>
