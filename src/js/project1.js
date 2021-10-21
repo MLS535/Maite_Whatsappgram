@@ -23,20 +23,26 @@ window.addEventListener('DOMContentLoaded', function (){keyboard.inicio()})
 
 document.getElementById("boton").addEventListener("click", function() {
     envioBoton();
+
 });
 
 function envioBoton(){
+    //Para inserta la hora al mensaje
+    var today = new Date();
+    //Con today.getMinutes()<10?'0':'' solucionamos el problema de que no aparezca el 0.
+    var tiempo = " \n "+today.getHours() + ":" + ((today.getMinutes()<10?'0':'') + today.getMinutes() );
     var textarea= document.getElementById('texto').value;
     var divino = document.createElement("div");
     divino.appendChild(document.createTextNode(textarea));
-    document.getElementById("nuevosmensajes").appendChild(divino);
+    divino.appendChild(document.createTextNode(tiempo));
+    var messages= document.getElementById("messages").appendChild(divino);
 //TODO EL MENSAJE SE DEBE BORRAR AL SER ENVIADO
-    //Para inserta la hora al mensaje
-    var hora =new Date;
-
-
+    //con este elemento se envia y borra el texto pero ya no permite enviar más mensajes hacer un if y un else?
+    //document.getElementById('texto').value = "";
+    //todo el mensaje tiene que hacer scrolldown al final DONE
+    var elmnt = document.getElementById("messages");
+    elmnt.scrollIntoView(false);
 }
-
 
 //TODO !!!! PISTA PROFE: EL IDENTIFICADOR DE LA LETRA ES LO MISMO QUE IMPRIMIR
 //function imprimirtecla(valor){ document.getelementbyid("message").innerHTML += valor}

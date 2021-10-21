@@ -3,7 +3,7 @@ body{
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
 }
-/*todo FIX ME: El scroll baja hasta abajo y deberia ser solo hasta el teclado pero ya se ven los mensajes.
+/*todo FIX ME: El scroll baja hasta abajo y deberia ser solo hasta el teclado Se necesita que se vean los mensajes.
 todo FIX ME: HAY QUE AÑADIR AL TECLADO UN TAMAÑO MINIMO Y MÁXIMO
  */
 .contenedor {
@@ -12,14 +12,15 @@ todo FIX ME: HAY QUE AÑADIR AL TECLADO UN TAMAÑO MINIMO Y MÁXIMO
     grid-template-areas:
     "formulario"
     "teclado";
+    grid-template-rows: 1.5fr 2.5fr;
     */
-    grid-template-rows: 7.5fr 2.5fr;
+
 
 
 
 }
 
-.messages {
+#messages {
     display: flex;
     justify-content: flex-start;
     justify-items: flex-end;
@@ -34,7 +35,7 @@ Limitar el grid
 }
 
 
-.messages>div{
+#messages>div{
     background-color: #23a6d5;
    margin: 10px;
     padding: 5px;
@@ -45,10 +46,13 @@ Limitar el grid
 TODO CENTRAR LA FECHA DE ARRIBA
  */
 #fecha{
+    height: 24px;
+    margin: 13px;
     background-color: pink;
     justify-content: center;
     justify-self: center;
     justify-items: center;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .formulario{
