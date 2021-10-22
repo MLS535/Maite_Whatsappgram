@@ -53,6 +53,9 @@ TODO CENTRAR LA FECHA DE ARRIBA
     justify-self: center;
     justify-items: center;
     font-family: "Lucida Console", "Courier New", monospace;
+    border-radius: 6px;
+    font-size: 17px;
+    padding: 7px;
 }
 
 .formulario{
@@ -77,6 +80,7 @@ TODO CENTRAR LA FECHA DE ARRIBA
     width: 76.6vw;
     height: 4vh;
     font-style: italic;
+    resize: none;
 }
 
 .teclado {

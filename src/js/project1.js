@@ -6,20 +6,79 @@ window.onload = (event) => {
     let name = fecha.getDate()+" de "+month[fecha.getMonth()];
     document.getElementById("fecha").innerHTML = name;
 };
+
+
 //TODO La messaging area conté els missatges escrits. DONE
 const keyboard ={
     inicio(){
         const divs= document.querySelectorAll(".linea1>div");
         divs.forEach(div =>{div.addEventListener('click',function (){
-            document.getElementById('texto').innerHTML+=div.textContent;
+            document.getElementById('texto').value+=div.textContent;
         }
         )
         }
         )
 
-    }
+    },
+//todo La tecla C esborra el text de la text area. DONE
+
+    borrarC(){
+        document.getElementById("borrarTodoTextArea").addEventListener("click", function(){
+            document.getElementById('texto').value="";
+        })
+    },
+
+//TODO SOLUCIONAR PODER BORRAR PALABRA
+
+    borrarPalabra(){
+        document.getElementById("borrarPalabra").addEventListener("click", function(){
+            let borrarPalabraTexto = document.getElementById('texto').value;
+            let lastIndex = borrarPalabraTexto.lastIndexOf(" ");
+            let ordenar = borrarPalabraTexto.substring(0, lastIndex);
+            document.getElementById('texto').value= ordenar;
+        })
+        },
+
+    //todo DELET La tecla  ←  esborra el darrer caràcter escrit a la text area. done
+    //Solo borra una vez y deja de hacerlo
+
+    borrarUltimaLetra(){
+        document
+            .getElementById('borrarUltimaLetra')
+            .addEventListener('click', () => {
+                let textoAborrar= document.getElementById('texto').value;
+                let texto = document.getElementById('texto').value = textoAborrar.slice(0,-2);
+        })
+    },
+//TODO DELET La tecla →  esborra el primer caracter escrit a la text area. done
+    borrarPrimeraletra(){
+        document
+            .getElementById('borrarPrimeraLetra')
+            .addEventListener('click', () => {
+                let textoPrimeraLetra= document.getElementById('texto').value;
+                let textoLetra = document.getElementById('texto').value = textoPrimeraLetra.substring(1).slice(0,-1);
+            })
+    },
+
+
 }
-window.addEventListener('DOMContentLoaded', function (){keyboard.inicio()})
+
+
+
+window.addEventListener('DOMContentLoaded', function (){
+    keyboard.inicio();
+    keyboard.borrarC();
+    keyboard.borrarUltimaLetra();
+    keyboard.borrarPrimeraletra();
+    keyboard.borrarPalabra();
+    /*
+
+
+
+
+
+     */
+})
 
 document.getElementById("boton").addEventListener("click", function() {
     envioBoton();
@@ -27,22 +86,30 @@ document.getElementById("boton").addEventListener("click", function() {
 });
 
 function envioBoton(){
-    //Para inserta la hora al mensaje
-    var today = new Date();
-    //Con today.getMinutes()<10?'0':'' solucionamos el problema de que no aparezca el 0.
-    var tiempo = " \n "+today.getHours() + ":" + ((today.getMinutes()<10?'0':'') + today.getMinutes() );
+
     var textarea= document.getElementById('texto').value;
     var divino = document.createElement("div");
     divino.appendChild(document.createTextNode(textarea));
-    divino.appendChild(document.createTextNode(tiempo));
-    var messages= document.getElementById("messages").appendChild(divino);
-//TODO EL MENSAJE SE DEBE BORRAR AL SER ENVIADO
-    //con este elemento se envia y borra el texto pero ya no permite enviar más mensajes hacer un if y un else?
-    //document.getElementById('texto').value = "";
+
+    var today = new Date();
+    //Con today.getMinutes()<10?'0':'' solucionamos el problema de que no aparezca el 0.
+    var tiempo =" " +today.getHours() + ":" + ((today.getMinutes()<10?'0':'') + today.getMinutes() );
+    var parrafo =document.createElement('span');
+    parrafo.appendChild(document.createTextNode(tiempo));
+    var messages= document.getElementById("messages").appendChild(divino).appendChild(parrafo);
+    //Para inserta la hora al mensaje y darle un formato de estilo
+    parrafo.style.cssText='font-size: 9px; justify-content: flex-end';
+
+//TODO EL MENSAJE SE DEBE BORRAR AL SER ENVIADO DONE
+    //con este elemento se envia y borra el texto pero ya no permite enviar más mensajes
+    document.getElementById('texto').value="";
     //todo el mensaje tiene que hacer scrolldown al final DONE
     var elmnt = document.getElementById("messages");
     elmnt.scrollIntoView(false);
+
+
 }
+
 
 //TODO !!!! PISTA PROFE: EL IDENTIFICADOR DE LA LETRA ES LO MISMO QUE IMPRIMIR
 //function imprimirtecla(valor){ document.getelementbyid("message").innerHTML += valor}
@@ -76,13 +143,7 @@ Tecles de lletres: han de sortir totes les habituals (encara que és suficient q
 
 //todo En clicar sobre un emoji, s’envia un missatge amb aquell emoji (en una mida adequada, ni massa gran ni massa petita).
 
-//todo La tecla C esborra el text de la text area.
+
 
 //todo La tecla CE esborra la darrera paraula de la text area
 // (si els darrers caràcters escrits són 1 o més espais, esborra la paraula abans dels espais).
-
-//todo DELET La tecla  ←  esborra el darrer caràcter escrit a la text area.
-
-//TODO DELET La tecla →  esborra el primer caracter escrit a la text area.
-
-//
