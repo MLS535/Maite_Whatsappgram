@@ -66,11 +66,11 @@ TODO CENTRAR LA FECHA DE ARRIBA
     align-items: baseline;
 
 }
-.botones{
+button{
     border-radius: 50%;
     padding: 5px;
 }
-.botones>img{
+button>img{
     width: 20px;
     height: 20px;
 }
@@ -118,4 +118,43 @@ TODO CENTRAR LA FECHA DE ARRIBA
 }
 #spacebar{
     flex-basis: 500px;
+}
+/*
+.hideemoji{
+display: none;
+}
+*/
+#gifs{
+
+    background-color: lightgray;
+    position: fixed;
+    bottom: 0;
+    width: 98.9vw;
+    height: 33vh;
+    border-radius:3px;
+    border:2px solid grey;
+    font-size: 4vh;
+    font-family: Arial, serif;
+}
+.gifemoji{
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    line-height: 5vh;
+}
+
+.gifemoji >div{
+
+    border: solid;
+    border-radius: 3px;
+    width: 55px;
+    text-align: center;
+    margin: 2px;
+    float: left;
+    cursor: pointer;
+    background-color: pink;
+    /* box-sizing: border-box; */
+    flex-grow: 2;
 }

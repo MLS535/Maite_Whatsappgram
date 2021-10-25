@@ -3,69 +3,64 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maite Whatsapgram</title>
     <link rel="stylesheet" type="text/css" href="css/project1.css" />
     <script src="https://kit.fontawesome.com/d6be90a814.js" crossorigin="anonymous"></script>
-
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0">
 </head>
 <body>
 <section class="contenedor">
     <div id="fecha"></div>
-    <div id="messages" >
-        <!-- TODO Revisar el scroll down que no se mueva ni el input ni el teclado
-        //todo MediaQuery
-        <div>holas</div><div>holas</div><div>holas</div><div>holas</div><div>holas</div>
-         <div>holas</div><div>holas</div>
-         <div>holas</div>
-         <div>holas</div>
-         <div>holas</div>
-         <div>holas</div><div>holas</div>
-         <div>consectetur adipiscing elit.</div> -->
+    <div class="messages" id="messages">
+        <!--TODO Revisar el scroll down que no se mueva ni el input ni el teclado
+        todo MediaQuery -->
+
 
     </div>
 <form class="formulario">
-    <button class="botones"><img src="img/gif_smile.png" alt="boton de envio" ></button>
-    <input type="text" class="inputtext" id="texto" placeholder="Escriu un missatge" />
-<button type="button" class="botones" id="boton"><img src="img/chat-send-icon-1.jpg" alt="boton de envio" > </button>
+    <button id="emojis" class="boton"><img src="img/gif_smile.png" ></button>
+
+    <input   type="text" class="inputtext" id="texto" placeholder="Escriu un missatge" />
+
+    <button type="button" class="botones" id="boton"><img src="img/chat-send-icon-1.jpg" alt="boton de envio" > </button>
 </form>
 
 
 <div class="teclado">
 <div class="linea1">
-    <div>q</div>
-    <div>w</div>
-    <div>e</div>
-    <div>r</div>
-    <div>t</div>
-    <div>y</div>
-    <div>u</div>
-    <div>i</div>
-    <div>o</div>
-    <div>p</div>
+    <div class="shift">q</div>
+    <div class="shift">w</div>
+    <div class="shift">e</div>
+    <div class="shift">r</div>
+    <div class="shift">t</div>
+    <div class="shift">y</div>
+    <div class="shift">u</div>
+    <div class="shift">i</div>
+    <div class="shift">o</div>
+    <div class="shift">p</div>
 </div>
 <div class="linea1">
-    <div>a</div>
-    <div>s</div>
-    <div>d</div>
-    <div>f</div>
-    <div>g</div>
-    <div>h</div>
-    <div>j</div>
-    <div>k</div>
-    <div>l</div>
+    <div class="shift">a</div>
+    <div class="shift">s</div>
+    <div class="shift">d</div>
+    <div class="shift">f</div>
+    <div class="shift">g</div>
+    <div class="shift">h</div>
+    <div class="shift">j</div>
+    <div class="shift">k</div>
+    <div class="shift">l</div>
 
 </div>
 
 <div class="linea1">
-    <div id="flecharriba">&uArr;</div>
-    <div>z</div>
-    <div>x</div>
-    <div>c</div>
-    <div>v</div>
-    <div>b</div>
-    <div>n</div>
-    <div>m</div>
+    <div class="shift" id="cambioMayus">abc</div>
+    <div class="shift">z</div>
+    <div class="shift">x</div>
+    <div class="shift">c</div>
+    <div class="shift">v</div>
+    <div class="shift">b</div>
+    <div class="shift">n</div>
+    <div class="shift">m</div>
     <div id="borrarUltimaLetra">&lArr;</div>
 </div>
     <div class="linea1">
@@ -78,6 +73,43 @@
         <div id="saltoDeLinea">&crarr;</div>
     </div>
 </div>
+
+    <div id="gifs" class="hideemoji">
+        <div class="gifemoji">
+        <div class="emoji">&#128512;</div>
+        <div class="emoji">&#128513;</div>
+        <div class="emoji">&#128514;</div>
+        <div class="emoji">&#128515;</div>
+        <div class="emoji">&#128516;</div>
+        <div class="emoji">&#128517;</div>
+        <div class="emoji">&#128518;</div>
+        <div class="emoji">&#128519;</div>
+        <div class="emoji">&#128520;</div>
+        <div class="emoji">&#128521;</div>
+        </div>
+
+        <div class="gifemoji">
+            <div class="emoji">&#128522;</div>
+            <div class="emoji">&#128523;</div>
+            <div class="emoji">&#128524;</div>
+            <div class="emoji">&#128525;</div>
+            <div class="emoji">&#128526;</div>
+            <div class="emoji">&#128527;</div>
+            <div class="emoji">&#128528;</div>
+            <div class="emoji">&#128529;</div>
+            <div class="emoji">&#12830;</div>
+
+        </div>
+        <div class="gifemoji">
+        <div class="shift">&#128531;</div>
+        <div class="shift">&#128532;</div>
+        <div class="shift">&#128533;</div>
+        <div class="shift">&#128534;</div>
+        <div class="shift">&#128535;</div>
+        <div class="shift">&#128536;</div>
+        <div class="shift">&#128537;</div>
+    </div>
+    </div>
 </section>
 <script src="js/project1.js"></script>
 </body>

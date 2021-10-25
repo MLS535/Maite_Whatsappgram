@@ -9,59 +9,116 @@ window.onload = (event) => {
 
 
 //TODO La messaging area conté els missatges escrits. DONE
-const keyboard ={
-    inicio(){
-        const divs= document.querySelectorAll(".linea1>div");
-        divs.forEach(div =>{div.addEventListener('click',function (){
-            document.getElementById('texto').value+=div.textContent;
-        }
-        )
-        }
+const keyboard = {
+    inicio() {
+        const divs = document.querySelectorAll ( ".linea1>div" );
+        divs.forEach ( div => {
+                div.addEventListener ( 'click', function () {
+                        document.getElementById ( 'texto' ).value += div.textContent;
+                    }
+                )
+            }
         )
 
     },
 //todo La tecla C esborra el text de la text area. DONE
 
-    borrarC(){
-        document.getElementById("borrarTodoTextArea").addEventListener("click", function(){
-            document.getElementById('texto').value="";
-        })
+    borrarC() {
+        document.getElementById ( "borrarTodoTextArea" ).addEventListener ( "click", function () {
+            document.getElementById ( 'texto' ).value = "";
+        } )
     },
 
-//TODO SOLUCIONAR PODER BORRAR PALABRA
+//todo La tecla CE esborra la darrera paraula de la text area DONE
 
-    borrarPalabra(){
-        document.getElementById("borrarPalabra").addEventListener("click", function(){
-            let borrarPalabraTexto = document.getElementById('texto').value;
-            let lastIndex = borrarPalabraTexto.lastIndexOf(" ");
-            let ordenar = borrarPalabraTexto.substring(0, lastIndex);
-            document.getElementById('texto').value= ordenar;
-        })
-        },
+    borrarPalabra() {
+        document.getElementById ( "borrarPalabra" ).addEventListener ( "click", function () {
+            let borrarPalabraTexto = document.getElementById ( 'texto' ).value;
+            document.getElementById ( 'texto' ).value = borrarPalabraTexto.replace ( /\w+[.!?]?$/, '' ).trim ();
+
+
+        } )
+    },
 
     //todo DELET La tecla  ←  esborra el darrer caràcter escrit a la text area. done
     //Solo borra una vez y deja de hacerlo
 
-    borrarUltimaLetra(){
+    borrarUltimaLetra() {
         document
-            .getElementById('borrarUltimaLetra')
-            .addEventListener('click', () => {
-                let textoAborrar= document.getElementById('texto').value;
-                let texto = document.getElementById('texto').value = textoAborrar.slice(0,-2);
-        })
+            .getElementById ( 'borrarUltimaLetra' )
+            .addEventListener ( 'click', () => {
+                let textoAborrar = document.getElementById ( 'texto' ).value;
+                let texto = document.getElementById ( 'texto' ).value = textoAborrar.slice ( 0, -2 );
+            } )
     },
+
 //TODO DELET La tecla →  esborra el primer caracter escrit a la text area. done
-    borrarPrimeraletra(){
+    borrarPrimeraletra() {
         document
-            .getElementById('borrarPrimeraLetra')
-            .addEventListener('click', () => {
-                let textoPrimeraLetra= document.getElementById('texto').value;
-                let textoLetra = document.getElementById('texto').value = textoPrimeraLetra.substring(1).slice(0,-1);
-            })
+            .getElementById ( 'borrarPrimeraLetra' )
+            .addEventListener ( 'click', () => {
+                let textoPrimeraLetra = document.getElementById ( 'texto' ).value;
+                let textoLetra = document.getElementById ( 'texto' ).value = textoPrimeraLetra.substring ( 1 ).slice ( 0, -1 );
+            } )
     },
+
+
+    mayuscula() {
+        document.getElementById ( 'cambioMayus' )
+            .addEventListener ( 'click', () => {
+                let borrarABC = document.getElementById ( 'texto' ).value;
+                let comprobar = document.getElementById ( 'texto' ).value = borrarABC.slice ( 0, -3 );
+                let botonMayus = document.getElementsByClassName ( 'shift' );
+
+                let i = 0;
+                let estilo = botonMayus[i].style.textTransform;
+
+                if ( estilo == "capitalize" ) {
+                    for (i = 0; i < botonMayus.length; i++) {
+                        botonMayus[i].style.textTransform = "lowercase";
+
+                    }
+                } else {
+                    for (i = 0; i < botonMayus.length; i++) {
+                        botonMayus[i].style.textTransform = "capitalize";
+                        document.getElementById('texto').oninput = function(event) {
+                            this.value = this.value.toUpperCase();
+                        }
+                    }
+
+                }
+
+
+            } )
+    },
+
+    emojis(){
+        //toggle
+        document.getElementById ( 'gifs' )
+            //TODO AÑADIR UN EVENTLISTENER COMO EL BOTON DE ENVIAR!!!!!!!!!!!!!!!!!
+            .addEventListener ( 'click', () =>{
+       // document.getElementById('gifs').classList.toggle('hideemoji');
+                var showemojis = false;
+                if ( showemojis === false ){
+                    document.getElementsByClassName('emoji')[0].setAttribute("id","emojiActive");
+                }else
+                    document.getElementsByClassName('emoji')[0].setAttribute("id","emojiDesactivate");
+
+        divs.forEach ( div => {
+                div.addEventListener ( 'click', function () {
+                        document.getElementById ( 'texto' ).value += div.textContent;
+                    }
+                )
+            }
+        )
+            } )
+    },
+
 
 
 }
+
+
 
 
 
@@ -71,6 +128,8 @@ window.addEventListener('DOMContentLoaded', function (){
     keyboard.borrarUltimaLetra();
     keyboard.borrarPrimeraletra();
     keyboard.borrarPalabra();
+    keyboard.mayuscula();
+    keyboard.emojis();
     /*
 
 
@@ -87,26 +146,45 @@ document.getElementById("boton").addEventListener("click", function() {
 
 function envioBoton(){
 
-    var textarea= document.getElementById('texto').value;
     var divino = document.createElement("div");
-    divino.appendChild(document.createTextNode(textarea));
+    var inputElement= document.getElementById('texto').value;
+
+    inputElement=inputElement.toString().split("↵");
+
+
+
+//TODO S’escriu un espai en la text area cada cop que s’espitja aquella tecla En enviar el missatge a la messaging area,
+// els espais han d’aparèixer també.
+    inputElement.forEach(function checkEnter(element, index, array) {
+        divino.appendChild(document.createTextNode(element));
+        if ( array.length > 1 && array.length != index+1){
+            divino.appendChild(document.createElement('br'));
+        }
+    });
+
+
+
 
     var today = new Date();
     //Con today.getMinutes()<10?'0':'' solucionamos el problema de que no aparezca el 0.
     var tiempo =" " +today.getHours() + ":" + ((today.getMinutes()<10?'0':'') + today.getMinutes() );
-    var parrafo =document.createElement('span');
-    parrafo.appendChild(document.createTextNode(tiempo));
-    var messages= document.getElementById("messages").appendChild(divino).appendChild(parrafo);
+    var spanElement =document.createElement('span');
+    spanElement.appendChild(document.createTextNode(tiempo));
+
+
     //Para inserta la hora al mensaje y darle un formato de estilo
-    parrafo.style.cssText='font-size: 9px; justify-content: flex-end';
+    spanElement.style.cssText='font-size: 9px; justify-content: flex-end';
+    document.getElementById("messages").appendChild(divino).appendChild(spanElement)
 
 //TODO EL MENSAJE SE DEBE BORRAR AL SER ENVIADO DONE
     //con este elemento se envia y borra el texto pero ya no permite enviar más mensajes
-    document.getElementById('texto').value="";
     //todo el mensaje tiene que hacer scrolldown al final DONE
-    var elmnt = document.getElementById("messages");
+   var elmnt = document.getElementById("messages");
     elmnt.scrollIntoView(false);
 
+
+
+    document.getElementById('texto').value="";
 
 }
 
@@ -145,5 +223,5 @@ Tecles de lletres: han de sortir totes les habituals (encara que és suficient q
 
 
 
-//todo La tecla CE esborra la darrera paraula de la text area
+
 // (si els darrers caràcters escrits són 1 o més espais, esborra la paraula abans dels espais).
