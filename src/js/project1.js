@@ -10,6 +10,7 @@ window.onload = (event) => {
 
 //TODO La messaging area conté els missatges escrits. DONE
 const keyboard = {
+
     inicio() {
         const divs = document.querySelectorAll ( ".linea1>div" );
         divs.forEach ( div => {
@@ -41,7 +42,7 @@ const keyboard = {
     },
 
     //todo DELET La tecla  ←  esborra el darrer caràcter escrit a la text area. done
-    //Solo borra una vez y deja de hacerlo
+
 
     borrarUltimaLetra() {
         document
@@ -63,34 +64,6 @@ const keyboard = {
     },
 
 
-    mayuscula() {
-        document.getElementById ( 'cambioMayus' )
-            .addEventListener ( 'click', () => {
-                let borrarABC = document.getElementById ( 'texto' ).value;
-                let comprobar = document.getElementById ( 'texto' ).value = borrarABC.slice ( 0, -3 );
-                let botonMayus = document.getElementsByClassName ( 'shift' );
-
-                let i = 0;
-                let estilo = botonMayus[i].style.textTransform;
-
-                if ( estilo == "capitalize" ) {
-                    for (i = 0; i < botonMayus.length; i++) {
-                        botonMayus[i].style.textTransform = "lowercase";
-
-                    }
-                } else {
-                    for (i = 0; i < botonMayus.length; i++) {
-                        botonMayus[i].style.textTransform = "capitalize";
-                        document.getElementById('texto').oninput = function(event) {
-                            this.value = this.value.toUpperCase();
-                        }
-                    }
-
-                }
-
-
-            } )
-    },
 
     emoji() {
         const divs = document.querySelectorAll ( ".gifemoji>div" );
@@ -103,7 +76,14 @@ const keyboard = {
         )
 
     },
+    mayus(){
+        document.getElementById("cambioMayus").addEventListener("click", function() {
+            let borrarABC = document.getElementById ( 'texto' ).value;
+             document.getElementById ( 'texto' ).value = borrarABC.slice ( 0, -3 );
+            mayusculas();
 
+        });
+    }
 
 
 }
@@ -118,7 +98,7 @@ window.addEventListener('DOMContentLoaded', function (){
     keyboard.borrarUltimaLetra();
     keyboard.borrarPrimeraletra();
     keyboard.borrarPalabra();
-    keyboard.mayuscula();
+    keyboard.mayus();
     keyboard.emoji();
     /*
 
@@ -129,9 +109,55 @@ window.addEventListener('DOMContentLoaded', function (){
      */
 })
 
+
+function mayusculas() {
+            //let borrarABC = document.getElementById ( 'texto' ).value;
+           // let comprobar = document.getElementById ( 'texto' ).value = borrarABC.slice ( 0, -3 );
+            let botonMayus = document.getElementsByClassName ( 'shift' );
+
+            let i = 0;
+            let estilo = botonMayus[i].style.textTransform;
+
+            if ( estilo === "capitalize" ) {
+
+                for (i = 0; i < botonMayus.length; i++) {
+                    botonMayus[i].textContent=botonMayus[i].textContent.toLowerCase();
+                    botonMayus[i].style.textTransform="lowercase";
+                }
+
+
+            }
+            else {
+
+                for (i = 0; i < botonMayus.length; i++) {
+                    botonMayus[i].textContent=botonMayus[i].textContent.toUpperCase();
+                    botonMayus[i].style.textTransform="capitalize";
+                }
+
+            }
+            }
+
+
+/*
+document.getElementById("cambioMayus").addEventListener("click", function() {
+
+    mayusculas();
+
+});
+*/
+//todo En clicar sobre GIF, se mostren els emojis (mínim de 3)  i  la icona “GIF” se canvia per la icona d’un teclat. DONE
+
 var container = document.querySelector('#emojis');
 container
     .addEventListener("click", function() {
+
+        let img = document.getElementById('cambioteclado').src;
+        if (img.indexOf('gif_smile.png')!=-1) {
+            document.getElementById('cambioteclado').src  = 'img/teclado.png';
+        }
+        else {
+            document.getElementById('cambioteclado').src = 'img/gif_smile.png';
+        }
     var emojis = document.getElementById("hideemoji");
     emojis.classList.toggle("gifs");
 });
@@ -151,7 +177,7 @@ function envioBoton(){
 
 
 //TODO S’escriu un espai en la text area cada cop que s’espitja aquella tecla En enviar el missatge a la messaging area,
-// els espais han d’aparèixer també.
+// els espais han d’aparèixer també. DONE
     inputElement.forEach(function checkEnter(element, index, array) {
         divino.appendChild(document.createTextNode(element));
         if ( array.length > 1 && array.length != index+1){
@@ -213,7 +239,7 @@ Tecles de lletres: han de sortir totes les habituals (encara que és suficient q
  */
 
 
-//todo En clicar sobre GIF, se mostren els emojis (mínim de 3)  i  la icona “GIF” se canvia per la icona d’un teclat.
+
 
 
 //todo En clicar sobre un emoji, s’envia un missatge amb aquell emoji (en una mida adequada, ni massa gran ni massa petita).
