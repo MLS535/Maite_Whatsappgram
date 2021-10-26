@@ -120,11 +120,11 @@ button>img{
     flex-basis: 500px;
 }
 /*
-.hideemoji{
+#hideemoji{
 display: none;
 }
 */
-#gifs{
+.gifs{
 
     background-color: lightgray;
     position: fixed;
@@ -136,15 +136,19 @@ display: none;
     font-size: 4vh;
     font-family: Arial, serif;
 }
-.gifemoji{
+.gifs>div{
 
     display: flex;
     justify-content: center;
     text-align: center;
     margin: 5px;
     line-height: 5vh;
+    cursor: pointer;
 }
-
+.gifemoji{
+    display: none;
+}
+/*
 .gifemoji >div{
 
     border: solid;
@@ -155,6 +159,8 @@ display: none;
     float: left;
     cursor: pointer;
     background-color: pink;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     flex-grow: 2;
 }
+
+ */

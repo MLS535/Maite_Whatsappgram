@@ -92,18 +92,8 @@ const keyboard = {
             } )
     },
 
-    emojis(){
-        //toggle
-        document.getElementById ( 'gifs' )
-            //TODO AÑADIR UN EVENTLISTENER COMO EL BOTON DE ENVIAR!!!!!!!!!!!!!!!!!
-            .addEventListener ( 'click', () =>{
-       // document.getElementById('gifs').classList.toggle('hideemoji');
-                var showemojis = false;
-                if ( showemojis === false ){
-                    document.getElementsByClassName('emoji')[0].setAttribute("id","emojiActive");
-                }else
-                    document.getElementsByClassName('emoji')[0].setAttribute("id","emojiDesactivate");
-
+    emoji() {
+        const divs = document.querySelectorAll ( ".gifemoji>div" );
         divs.forEach ( div => {
                 div.addEventListener ( 'click', function () {
                         document.getElementById ( 'texto' ).value += div.textContent;
@@ -111,7 +101,7 @@ const keyboard = {
                 )
             }
         )
-            } )
+
     },
 
 
@@ -129,7 +119,7 @@ window.addEventListener('DOMContentLoaded', function (){
     keyboard.borrarPrimeraletra();
     keyboard.borrarPalabra();
     keyboard.mayuscula();
-    keyboard.emojis();
+    keyboard.emoji();
     /*
 
 
@@ -138,6 +128,13 @@ window.addEventListener('DOMContentLoaded', function (){
 
      */
 })
+
+var container = document.querySelector('#emojis');
+container
+    .addEventListener("click", function() {
+    var emojis = document.getElementById("hideemoji");
+    emojis.classList.toggle("gifs");
+});
 
 document.getElementById("boton").addEventListener("click", function() {
     envioBoton();
