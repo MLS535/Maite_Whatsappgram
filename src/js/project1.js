@@ -7,6 +7,8 @@ window.onload = (event) => {
     document.getElementById("fecha").innerHTML = name;
 };
 
+var clickCount=0;
+
 
 //TODO La messaging area conté els missatges escrits. DONE
 const keyboard = {
@@ -22,6 +24,26 @@ const keyboard = {
         )
 
     },
+
+
+
+
+
+
+
+
+
+    // inicio() {
+    //     const divs = document.querySelectorAll ( ".linea1>div" );
+    //     divs.forEach ( div => {
+    //             div.addEventListener ( 'click', function () {
+    //                     document.getElementById ( 'texto' ).value += div.textContent;
+    //                 }
+    //             )
+    //         }
+    //     )
+    //
+    // },
 //todo La tecla C esborra el text de la text area. DONE
 
     borrarC() {
@@ -76,21 +98,27 @@ const keyboard = {
         )
 
     },
+
+
     mayus(){
         document.getElementById("cambioMayus").addEventListener("click", function() {
             let borrarABC = document.getElementById ( 'texto' ).value;
              document.getElementById ( 'texto' ).value = borrarABC.slice ( 0, -3 );
-            mayusculas();
+            mayusminus();
 
         });
-    }
+    },
+
 
 
 }
 
 
 
-
+/*
+todo En la keyboard area hi haurà tecles de lletres i funcions.
+Tecles de lletres: han de sortir totes les habituals (encara que és suficient que funcionin les de la primera fila).
+ */
 
 window.addEventListener('DOMContentLoaded', function (){
     keyboard.inicio();
@@ -100,51 +128,104 @@ window.addEventListener('DOMContentLoaded', function (){
     keyboard.borrarPalabra();
     keyboard.mayus();
     keyboard.emoji();
-    /*
 
 
-
-
-
-     */
 })
 
 
-function mayusculas() {
-            //let borrarABC = document.getElementById ( 'texto' ).value;
-           // let comprobar = document.getElementById ( 'texto' ).value = borrarABC.slice ( 0, -3 );
-            let botonMayus = document.getElementsByClassName ( 'shift' );
 
-            let i = 0;
-            let estilo = botonMayus[i].style.textTransform;
+function mayusminus(){
+    let botonMayus = document.getElementsByClassName ( 'shift' );
 
-            if ( estilo === "capitalize" ) {
+    let i = 0;
+    let estilo = botonMayus[i].style.textTransform;
 
-                for (i = 0; i < botonMayus.length; i++) {
-                    botonMayus[i].textContent=botonMayus[i].textContent.toLowerCase();
-                    botonMayus[i].style.textTransform="lowercase";
+    switch (estilo) {
+        case 'initial':
+            for (i = 0; i < botonMayus.length; i++) {
+                botonMayus[i].textContent = botonMayus[i].textContent.toUpperCase ();
+                botonMayus[i].style.textTransform = "uppercase";
+                if (  botonMayus[i].style.textTransform === "uppercase" ) {
+                    const divs = document.querySelectorAll ( ".shift" );
+                    divs.forEach ( div => {
+                            div.addEventListener ( 'click', function () {
+
+                                    for (i = 0; i < botonMayus.length; i++) {
+                                        botonMayus[i].textContent = botonMayus[i].textContent.toUpperCase();
+                                        botonMayus[i].style.textTransform = "uppercase";
+                                    }
+
+                                }
+                            )
+                        }
+                    )
+
+                }
+            }
+            console.log ( 1 );
+            break;
+        case 'uppercase':
+            for (i = 0; i < botonMayus.length; i++) {
+                botonMayus[i].textContent = botonMayus[i].textContent.toLowerCase();
+                botonMayus[i].style.textTransform = "lowercase";
+                if (  botonMayus[i].style.textTransform === "lowercase" ) {
+                    const divs = document.querySelectorAll ( ".shift" );
+                    divs.forEach ( div => {
+                            div.addEventListener ( 'click', function () {
+
+                                    for (i = 0; i < botonMayus.length; i++) {
+                                        botonMayus[i].textContent = botonMayus[i].textContent.toLowerCase();
+                                        botonMayus[i].style.textTransform = "lowercase";
+                                    }
+
+                                }
+                            )
+                        }
+                    )
+
+                }
+            }
+            console.log ( 2 );
+
+            break;
+        default:
+            for (i = 0; i < botonMayus.length; i++) {
+                botonMayus[i].textContent = botonMayus[i].textContent.toUpperCase ();
+                botonMayus[i].style.textTransform = "capitalize";
+                if (  botonMayus[i].style.textTransform === "capitalize" ) {
+                    const divs = document.querySelectorAll ( ".shift" );
+                    divs.forEach ( div => {
+                            div.addEventListener ( 'click', function () {
+
+                                    for (i = 0; i < botonMayus.length; i++) {
+                                        botonMayus[i].textContent = botonMayus[i].textContent.toLowerCase ();
+                                        botonMayus[i].style.textTransform = "initial";
+                                    }
+
+                                }
+                            )
+                        }
+                    )
+
                 }
 
-
             }
-            else {
-
-                for (i = 0; i < botonMayus.length; i++) {
-                    botonMayus[i].textContent=botonMayus[i].textContent.toUpperCase();
-                    botonMayus[i].style.textTransform="capitalize";
-                }
-
-            }
-            }
+            console.log ( "dentro" );
+            console.log ( 3 );
+            break;
+    }
+}
 
 
-/*
-document.getElementById("cambioMayus").addEventListener("click", function() {
 
-    mayusculas();
 
-});
-*/
+
+//TODO COMPROBACIÓN MAYUS HACER MAS PEQUEÑO/GRANDE
+
+
+
+
+
 //todo En clicar sobre GIF, se mostren els emojis (mínim de 3)  i  la icona “GIF” se canvia per la icona d’un teclat. DONE
 
 var container = document.querySelector('#emojis');
@@ -233,10 +314,7 @@ En pulsar el send button, el missatge se mostra en la messaging area.
  */
 
 
-/*
-todo En la keyboard area hi haurà tecles de lletres i funcions.
-Tecles de lletres: han de sortir totes les habituals (encara que és suficient que funcionin les de la primera fila).
- */
+
 
 
 
@@ -247,4 +325,4 @@ Tecles de lletres: han de sortir totes les habituals (encara que és suficient q
 
 
 
-// (si els darrers caràcters escrits són 1 o més espais, esborra la paraula abans dels espais).
+
