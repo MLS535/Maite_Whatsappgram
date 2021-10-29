@@ -1,22 +1,71 @@
+
+/*
+TODO GOOGLE FONTS:
+ */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+:root{
+    --pink: lightpink;
+    --lightgrey: lightgrey;
+    --lightgreen: #23d5ab;
+}
+
+
+
+
 body{
     margin: 0;
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
 }
-/*todo FIX ME: El scroll baja hasta abajo y deberia ser solo hasta el teclado Se necesita que se vean los mensajes.
-todo FIX ME: HAY QUE AÑADIR AL TECLADO UN TAMAÑO MINIMO Y MÁXIMO
- */
+
 .contenedor {
     display: grid;
-   /* grid-template-columns: 2fr;
     grid-template-areas:
-    "formulario"
-    "teclado";
-    grid-template-rows: 1.5fr 2.5fr;
-    */
+        "head"
+        "messages"
+        "formulario"
+        "teclado";
 
 
+}
+.whatsapp{
+    display: flex;
+    background-color: var(--lightgrey);
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    position: sticky;
+    align-self: flex-start;
+    overflow-y: auto;
+    grid-area:head;
+}
 
+.maite{
+    flex-grow: 19;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1.25rem;
+}
+#foto{
+    width: 51px;
+    height: 50px;
+    border-radius: 100px;
+
+}
+
+.iconos{
+    margin-right: 18px;
+}
+
+#fecha{
+
+    margin: 13px;
+    background-color: var(--pink);
+    justify-self: center;
+    align-self: center;
+    font-family: "Lucida Console", "Courier New", monospace;
+    border-radius: 6px;
+    font-size: 17px;
+    padding: 7px;
 
 }
 
@@ -26,9 +75,13 @@ todo FIX ME: HAY QUE AÑADIR AL TECLADO UN TAMAÑO MINIMO Y MÁXIMO
     justify-items: flex-end;
     align-items: flex-end;
     flex-direction: column;
-    /*grid-area: messages; */
-
-    font-family: "Lucida Console", "Courier New", monospace;
+    font-family: 'Comfortaa', cursive;
+    min-height: 52vh;
+    max-height:52vh;
+    overflow: auto;
+    grid-area: messages;
+    background: url("https://todoimagenesde.com/wp-content/uploads/2019/03/Fondos23.jpg");
+    font-size: 1.2rem;
 /*
 Limitar el grid
  */
@@ -41,59 +94,41 @@ Limitar el grid
     padding: 5px;
     width: fit-content;
     height: fit-content;
+
 }
 /*
 TODO CENTRAR LA FECHA DE ARRIBA
  */
-#fecha{
-    height: 24px;
-    margin: 13px;
-    background-color: pink;
-    justify-content: center;
-    justify-self: center;
-    justify-items: center;
-    font-family: "Lucida Console", "Courier New", monospace;
-    border-radius: 6px;
-    font-size: 17px;
-    padding: 7px;
-}
+
 
 .formulario{
-   grid-area: formulario;
-    background-color: lightpink;
-    position: fixed;
+    display: inline-flex;
+    background-color: var(--lightgrey);
+    position: inherit;
     bottom: 215px;
-    align-items: baseline;
+    grid-area: formulario;
+}
 
-}
-button{
-    border-radius: 50%;
-    padding: 5px;
-}
 button>img{
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
 }
 .inputtext{
-    border: 2px solid black;
-    /*border-radius: 25px;*/
-    width: 76.6vw;
-    height: 4vh;
-    font-style: italic;
+
+    width: 75vw;
+    font-family: 'Comfortaa', cursive;
     resize: none;
+    font-size: 1.2rem;
 }
 
 .teclado {
     grid-area: teclado;
-    background-color: lightgray;
-    position: fixed;
+    background-color: var(--lightgrey);
     bottom: 0;
-    width: 98.9vw;
-    height: 33vh;
-    border-radius:3px;
-    border:2px solid grey;
+    height: 34.6vh;
     font-size: 4vh;
-    font-family: Arial, serif;
+    font-family: 'Comfortaa', cursive;
+
 }
 
 .linea1{
@@ -105,23 +140,28 @@ button>img{
 }
 
 .linea1 >div{
-    border: solid;
-    border-radius: 3px;
-    width: 55px;
+
+    border-style: outset;
     text-align: center;
     margin: 2px;
     float: left;
     cursor: pointer;
-    background-color: pink;
+    background-color: var(--pink);
     /* box-sizing: border-box; */
+    transition: all 0.4s ease 0s;
     flex-grow: 2;
 }
 
+.linea1 >div:hover{
+    background-color: var(--lightgreen);
+    color: white;
+    transition: all 0.4s ease 0s;
+}
 .shift{
     text-transform: initial;
 }
 #spacebar{
-    flex-basis: 500px;
+    flex-grow: 20;
 }
 /*
 #hideemoji{
@@ -129,16 +169,12 @@ display: none;
 }
 */
 .gifs{
-
-    background-color: lightgray;
-    position: fixed;
+    grid-area: teclado;
+    background-color: var(--lightgrey);
     bottom: 0;
-    width: 98.9vw;
-    height: 33vh;
-    border-radius:3px;
-    border:2px solid grey;
+    height: 34.6vh;
     font-size: 4vh;
-    font-family: Arial, serif;
+    font-family: 'Comfortaa', cursive;
 }
 .gifs>div{
 
@@ -147,9 +183,41 @@ display: none;
     text-align: center;
     margin: 5px;
     line-height: 5vh;
-
+    cursor: pointer;
 }
 .gifemoji{
     display: none;
 }
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
 
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--pink);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color:var(--lightgreen);
+}
+
+@media only screen and (min-width: 642px)
+{
+    .contenedor{
+        width: 100vw;
+        height: 100vh;
+        grid-template-areas:
+        ". head ."
+        ". messages ."
+        ". formulario ."
+        ". teclado .";
+ grid-template-columns: 34fr 533px 34fr;
+        grid-template-rows: 0.55fr 0fr 1fr;
+    }
+
+
+}

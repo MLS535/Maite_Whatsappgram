@@ -71,7 +71,7 @@ const keyboard = {
             .getElementById ( 'borrarUltimaLetra' )
             .addEventListener ( 'click', () => {
                 let textoAborrar = document.getElementById ( 'texto' ).value;
-                let texto = document.getElementById ( 'texto' ).value = textoAborrar.slice ( 0, -2 );
+                let texto = document.getElementById ( 'texto' ).value = textoAborrar.slice ( 0, -1 );
             } )
     },
 
@@ -81,7 +81,7 @@ const keyboard = {
             .getElementById ( 'borrarPrimeraLetra' )
             .addEventListener ( 'click', () => {
                 let textoPrimeraLetra = document.getElementById ( 'texto' ).value;
-                let textoLetra = document.getElementById ( 'texto' ).value = textoPrimeraLetra.substring ( 1 ).slice ( 0, -1 );
+                let textoLetra = document.getElementById ( 'texto' ).value = textoPrimeraLetra.slice(1);
             } )
     },
 
@@ -145,6 +145,7 @@ function mayusminus(){
             for (i = 0; i < botonMayus.length; i++) {
                 botonMayus[i].textContent = botonMayus[i].textContent.toUpperCase ();
                 botonMayus[i].style.textTransform = "uppercase";
+                document.getElementById("cambioMayus").style.textTransform = "uppercase";
                 if (  botonMayus[i].style.textTransform === "uppercase" ) {
                     const divs = document.querySelectorAll ( ".shift" );
                     divs.forEach ( div => {
@@ -154,7 +155,7 @@ function mayusminus(){
                                         botonMayus[i].textContent = botonMayus[i].textContent.toUpperCase();
                                         botonMayus[i].style.textTransform = "uppercase";
                                     }
-
+                                document.getElementById("cambioMayus").style.textTransform = "uppercase";
                                 }
                             )
                         }
@@ -162,12 +163,14 @@ function mayusminus(){
 
                 }
             }
+
             console.log ( 1 );
             break;
         case 'uppercase':
             for (i = 0; i < botonMayus.length; i++) {
                 botonMayus[i].textContent = botonMayus[i].textContent.toLowerCase();
                 botonMayus[i].style.textTransform = "lowercase";
+                document.getElementById("cambioMayus").style.textTransform = "lowercase";
                 if (  botonMayus[i].style.textTransform === "lowercase" ) {
                     const divs = document.querySelectorAll ( ".shift" );
                     divs.forEach ( div => {
@@ -177,14 +180,16 @@ function mayusminus(){
                                         botonMayus[i].textContent = botonMayus[i].textContent.toLowerCase();
                                         botonMayus[i].style.textTransform = "lowercase";
                                     }
-
+                                document.getElementById("cambioMayus").style.textTransform = "lowercase";
                                 }
                             )
                         }
                     )
 
                 }
+                document.getElementById("cambioMayus").style.textTransform = "lowercase";
             }
+
             console.log ( 2 );
 
             break;
@@ -192,6 +197,7 @@ function mayusminus(){
             for (i = 0; i < botonMayus.length; i++) {
                 botonMayus[i].textContent = botonMayus[i].textContent.toUpperCase ();
                 botonMayus[i].style.textTransform = "capitalize";
+                document.getElementById("cambioMayus").style.textTransform ="capitalize"
                 if (  botonMayus[i].style.textTransform === "capitalize" ) {
                     const divs = document.querySelectorAll ( ".shift" );
                     divs.forEach ( div => {
@@ -201,7 +207,7 @@ function mayusminus(){
                                         botonMayus[i].textContent = botonMayus[i].textContent.toLowerCase ();
                                         botonMayus[i].style.textTransform = "initial";
                                     }
-
+                                document.getElementById("cambioMayus").style.textTransform ="initial"
                                 }
                             )
                         }
@@ -210,8 +216,10 @@ function mayusminus(){
                 }
 
             }
+
             console.log ( "dentro" );
             console.log ( 3 );
+
             break;
     }
 }
@@ -284,7 +292,10 @@ function envioBoton(){
     //con este elemento se envia y borra el texto pero ya no permite enviar más mensajes
     //todo el mensaje tiene que hacer scrolldown al final DONE
    var elmnt = document.getElementById("messages");
-    elmnt.scrollIntoView(false);
+
+   elmnt.scrollTop = elmnt.scrollHeight;
+
+
 
 
 

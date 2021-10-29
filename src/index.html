@@ -6,17 +6,32 @@
     <title>Maite Whatsapgram</title>
     <link rel="stylesheet" type="text/css" href="css/project1.css" />
     <script src="https://kit.fontawesome.com/d6be90a814.js" crossorigin="anonymous"></script>
+
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0">
 </head>
 <body>
+
 <section class="contenedor">
-    <div id="fecha"></div>
+    <div class="whatsapp">
+        <i class="fas fa-arrow-left"></i>
+        <img src="img/foto_mladaria.jpg" id="foto" alt="foto maite">
+        <div class="maite">Maite</div>
+
+        <div class="iconos">
+            <i class="fas fa-video"></i>
+            <i class="fas fa-phone-alt"></i>
+        </div>
+
+    </div>
+
+
     <div class="messages" id="messages">
         <!--TODO Revisar el scroll down que no se mueva ni el input ni el teclado
         todo MediaQuery -->
-
+        <div id="fecha" style="background-color: pink"></div>
 
     </div>
+
 <div class="formulario">
     <button id="emojis" class="boton"><img src="img/gif_smile.png" id="cambioteclado"></button>
 
@@ -61,15 +76,16 @@
     <div class="shift">b</div>
     <div class="shift">n</div>
     <div class="shift">m</div>
-    <div id="borrarUltimaLetra">&lArr;</div>
+    <div id="borrarUltimaLetra"><i class="fas fa-backspace"></i></div>
+    <!-- &rArr;-->
 </div>
     <div class="linea1">
-        <div id="borrarTodoTextArea">ℂ</div>
+        <div id="borrarTodoTextArea"><i class="fab fa-cuttlefish"></i></div>
         <div id="borrarPalabra">CE</div>
         <div>,</div>
         <div id="spacebar">&ensp;</div>
         <div>.</div>
-        <div id="borrarPrimeraLetra">&rArr;</div>
+        <div id="borrarPrimeraLetra"><i class="fas fa-arrow-alt-circle-right"></i></div>
         <div id="saltoDeLinea">&crarr;</div>
     </div>
 </div>
@@ -89,7 +105,8 @@
         </div>
 
         <div class="gifemoji">
-            <div class="emoji">&#128522;</div>
+
+            <div class="emoji">&#128538;</div>
             <div class="emoji">&#128523;</div>
             <div class="emoji">&#128524;</div>
             <div class="emoji">&#128525;</div>
@@ -98,6 +115,7 @@
             <div class="emoji">&#128528;</div>
             <div class="emoji">&#128529;</div>
             <div class="emoji">&#128530;</div>
+            <div class="emoji">&#128541;</div>
 
         </div>
         <div class="gifemoji">
@@ -108,11 +126,38 @@
         <div class="shift">&#128535;</div>
         <div class="shift">&#128536;</div>
         <div class="shift">&#128537;</div>
+        <div class="shift">&#128539;</div>
+        <div class="shift">&#128540;</div>
+        <div class="shift">&#128542;</div>
     </div>
-
+        <div class="gifemoji">
+            <div class="shift">&#128543;</div>
+            <div class="shift">&#128544;</div>
+            <div class="shift">&#128545;</div>
+            <div class="shift">&#128546;</div>
+            <div class="shift">&#128547;</div>
+            <div class="shift">&#128548;</div>
+            <div class="shift">&#128549;</div>
+            <div class="shift">&#128550;</div>
+            <div class="shift">&#128551;</div>
+            <div class="shift">&#128552;</div>
+        </div>
+        <div class="gifemoji">
+            <div class="shift">&#128553;</div>
+            <div class="shift">&#128554;</div>
+            <div class="shift">&#128555;</div>
+            <div class="shift">&#128556;</div>
+            <div class="shift">&#128557;</div>
+            <div class="shift">&#128558;</div>
+            <div class="shift">&#128559;</div>
+            <div class="shift">&#128560;</div>
+            <div class="shift">&#128561;</div>
+            <div class="shift">&#128562;</div>
+        </div>
     </div>
 
 </section>
+
 <script src="js/project1.js"></script>
 </body>
 </html>
