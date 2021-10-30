@@ -241,11 +241,11 @@ container
     .addEventListener("click", function() {
 
         let img = document.getElementById('cambioteclado').src;
-        if (img.indexOf('gif_smile.png')!=-1) {
+        if (img.indexOf('emoji.png')!=-1) {
             document.getElementById('cambioteclado').src  = 'img/teclado.png';
         }
         else {
-            document.getElementById('cambioteclado').src = 'img/gif_smile.png';
+            document.getElementById('cambioteclado').src = 'img/emoji.png';
         }
     var emojis = document.getElementById("hideemoji");
     emojis.classList.toggle("gifs");

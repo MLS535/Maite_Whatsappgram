@@ -10,13 +10,14 @@
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0">
 </head>
 <body>
-
+<!-- Contiene el whatsappGram-->
 <section class="contenedor">
+    <!--Header con foto imitando a whatsapp -->
     <div class="whatsapp">
         <i class="fas fa-arrow-left"></i>
         <img src="img/foto_mladaria.jpg" id="foto" alt="foto maite">
         <div class="maite">Maite</div>
-
+        <!--Iconos de fontawesome -->
         <div class="iconos">
             <i class="fas fa-video"></i>
             <i class="fas fa-phone-alt"></i>
@@ -25,16 +26,17 @@
 
     </div>
 
-
+<!--Aquí se añaden los mensajes con un div -->
     <div class="messages" id="messages">
-        <!--TODO Revisar el scroll down que no se mueva ni el input ni el teclado
-        todo MediaQuery -->
+        <!--TODO Revisar el scroll down que no se mueva ni el input ni el teclado DONE
+        todo MediaQuery DONE-->
+        <!-- -->
         <div id="fecha" style="background-color: pink; margin-top:23px"></div>
 
     </div>
 
 <div class="formulario">
-    <button id="emojis" class="boton"><img src="img/gif_smile.png" id="cambioteclado"></button>
+    <button id="emojis" class="boton"><img src="img/emoji.png" id="cambioteclado"></button>
 
     <input   type="text" class="inputtext" id="texto" placeholder="Escriu un missatge" />
 
