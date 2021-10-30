@@ -57,7 +57,7 @@ const keyboard = {
     borrarPalabra() {
         document.getElementById ( "borrarPalabra" ).addEventListener ( "click", function () {
             let borrarPalabraTexto = document.getElementById ( 'texto' ).value;
-            document.getElementById ( 'texto' ).value = borrarPalabraTexto.replace ( /\w+[.!?]?$/, '' ).trim ();
+            document.getElementById ( 'texto' ).value = borrarPalabraTexto.replace(/[\W]*\S+[\W]*$/, '').trim();
 
 
         } )

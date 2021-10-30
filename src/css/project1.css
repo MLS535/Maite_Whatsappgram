@@ -56,6 +56,9 @@ body{
     margin-right: 18px;
 }
 
+i{
+ margin: 3px;
+}
 #fecha{
 
     margin: 13px;
@@ -163,17 +166,13 @@ button>img{
 #spacebar{
     flex-grow: 20;
 }
-/*
-#hideemoji{
-display: none;
-}
-*/
+
 .gifs{
     grid-area: teclado;
     background-color: var(--lightgrey);
     bottom: 0;
     height: 34.6vh;
-    font-size: 4vh;
+    font-size: 3.9vh;
     font-family: 'Comfortaa', cursive;
 }
 .gifs>div{
@@ -188,6 +187,7 @@ display: none;
 .gifemoji{
     display: none;
 }
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -205,7 +205,7 @@ display: none;
     background-color:var(--lightgreen);
 }
 
-@media only screen and (min-width: 642px)
+@media only screen and (min-width: 530px)
 {
     .contenedor{
         width: 100vw;
